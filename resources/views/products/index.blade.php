@@ -31,7 +31,7 @@
   <img class="card-img-top" src="..." alt="Card image cap">
   <div class="card-body">
   <h5 class="card-title">{{$product->product_name}}</h5>
-    <p class="card-text">beschruiving</p>
+    <p class="card-text">beschrijving</p>
     <a href="#" class="btn btn-primary">Go somewhere</a>
   </div>
 </div>
