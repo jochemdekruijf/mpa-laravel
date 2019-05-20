@@ -14,7 +14,9 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $categories = Category::all();
+
+        return view('categories.index', compact('categories'));
     }
 
     /**
@@ -24,7 +26,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('categories.create');
     }
 
     /**
@@ -35,7 +37,23 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // 'id',
+        // 'category_name',
+        // 'category_img',
+         
+        $request->validate([
+            'category_name'=>'required',
+            'category_img'=> 'required|integer'
+          ]);
+
+          $category = new Product([
+            'product_name' => $request->get('product_name'),
+            'product_price'=> $request->get('product_price')
+
+          ]);
+
+          $product->save();
+          return redirect('/products')->with('success', 'Stock has been added');
     }
 
     /**
