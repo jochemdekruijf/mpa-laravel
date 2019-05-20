@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+Route::get('/', 'CategoryController@index');
 Route::resource('products', 'ProductController');
 Route::resource('categories', 'CategoryController');

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use Illuminate\Http\Request;
+use validate;
 
 class CategoryController extends Controller
 {
@@ -37,23 +38,19 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        // 'id',
-        // 'category_name',
-        // 'category_img',
-         
         $request->validate([
             'category_name'=>'required',
-            'category_img'=> 'required|integer'
+            'category_img'=> ''
           ]);
 
-          $category = new Product([
-            'product_name' => $request->get('product_name'),
-            'product_price'=> $request->get('product_price')
+          $category = new Category([
+            'category_name' => $request->get('category_name'),
+            'category_img'=> $request->get('category_img')
 
           ]);
 
-          $product->save();
-          return redirect('/products')->with('success', 'Stock has been added');
+          $category->save();
+          return redirect('/categories')->with('success', 'Stock has been added');
     }
 
     /**
@@ -73,9 +70,12 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function edit(Category $category)
+    //Category $category
+    public function edit($id)
     {
-        //
+        $category = Category::find($id);
+
+        return view('categories.edit', compact('category'));
     }
 
     /**
@@ -85,9 +85,20 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    //Category $category
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'category_name'=>'required',
+            'category_img'=> ''
+          ]);
+           $category = Category::find($id); 
+           $category->category_name = $request->get('category_name');
+           $category->category_img = $request->get('category_img');
+
+          $category->save();
+          return redirect('/categories')->with('success', 'Stock has been added');
+    
     }
 
     /**
@@ -96,8 +107,12 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category)
+    //Category $category,
+    public function destroy( $id)
     {
-        //
+        $category = Category::find($id);
+        $category->delete();
+   
+        return redirect('/categories')->with('success', 'Stock has been deleted Successfully');
     }
 }
