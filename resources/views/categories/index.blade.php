@@ -24,7 +24,11 @@
   <img class="card-img-top" src="..." alt="Card image cap">
   <div class="card-body">
   <h5 class="card-title">{{$category->category_name}}</h5>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+
+
+    <a href="{{ url('products?category=' . $category->id)}}" class="btn btn-primary">Bekijk categorie</a>
+
+
     <a href="{{ route('categories.edit',$category->id)}}" class="btn btn-primary">Edit</a></td>
       <form action="{{ route('categories.destroy', $category->id)}}" method="post">
                   @csrf

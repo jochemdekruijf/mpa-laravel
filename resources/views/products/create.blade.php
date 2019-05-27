@@ -41,6 +41,12 @@
           <div class="form-group">
               <label for="category">category</label>
               <input type="text" class="form-control" name="category_id"/>
+              <select name="cars">
+  <option value="volvo">Elekrronica</option>
+  <option value="saab">Muziek</option>
+  <option value="fiat">pilsner</option>
+  <option value="audi">Autos</option>
+</select> 
           </div>
           <button type="submit" class="btn btn-primary">Add</button>
       </form>

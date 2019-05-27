@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use validate;
 use App\Product;
+use App\Category;
+use DB;
 
 class ProductController extends Controller
 {
@@ -13,11 +15,18 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $categoryId = $request->get('category');
+
+        $categories = Category::all();
+        if($categoryId !== null){
+            $categories = DB::table('products')->where('category_id', $categoryId)->get();
+        }
+
         $products = Product::all();
 
-        return view('products.index', compact('products'));
+        return view('products.index', ['categories' => $categories, 'products' => $products, 'categoryId' => $categoryId]);
     }
 
     /**
