@@ -15,5 +15,10 @@
 //     return view('welcome');
 // });
 Route::get('/', 'CategoryController@index');
+
 Route::resource('products', 'ProductController');
+
+// project.local/products/create/23
+Route::get('products/create/{category_id}', 'ProductController@create')->name('product.create.category');
+
 Route::resource('categories', 'CategoryController');

@@ -39,14 +39,14 @@
               <input type="file" class="form-control" name="product_img"/>
           </div>
           <div class="form-group">
-              <label for="category">category</label>
-              <input type="text" class="form-control" name="category_id"/>
-              <select name="cars">
-  <option value="volvo">Elekrronica</option>
-  <option value="saab">Muziek</option>
-  <option value="fiat">pilsner</option>
-  <option value="audi">Autos</option>
-</select> 
+              <label for="category">category </label>
+              <!-- <input type="text" class="form-control" name="category_id"/> -->
+              <select class="form-control" name="category_id">
+                @foreach($categories as $key=>$val) 
+                  <option value="{{ $key }}" <?php if (intval($key) === intval($categoryId)) { echo 'selected="selected"'; }?> >{{ $val }} </option>
+                @endforeach
+              </select> 
+
           </div>
           <button type="submit" class="btn btn-primary">Add</button>
       </form>

@@ -19,14 +19,12 @@ class ProductController extends Controller
     {
         $categoryId = $request->get('category');
 
-        $categories = Category::all();
+        $products = Product::all();
         if($categoryId !== null){
-            $categories = DB::table('products')->where('category_id', $categoryId)->get();
+            $products = DB::table('products')->where('category_id', $categoryId)->get();
         }
 
-        $products = Product::all();
-
-        return view('products.index', ['categories' => $categories, 'products' => $products, 'categoryId' => $categoryId]);
+        return view('products.index', ['products' => $products, 'categoryId' => $categoryId]);
     }
 
     /**
@@ -34,9 +32,12 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($categoryId=0)
     {
-        return view('products.create');
+        // haal uit de database een lijstje (pluck) met categorie namen en hun id
+        $categories = Category::all()->pluck('category_name', 'id');
+
+        return view('products.create', ['categoryId' => intval($categoryId), 'categories' => $categories]);
     }
 
     /**
@@ -76,7 +77,10 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        //
+        $cat = Categories::where('id', $id)
+        // ->with('products.index')
+        ->get()
+        ->first();
     }
 
     /**
