@@ -18,6 +18,10 @@ Route::get('/', 'CategoryController@index');
 
 Route::resource('products', 'ProductController');
 
+Route::get('add2cart/{id}', 'productController@getAdd2Cart')->name('cart.add');
+
+Route::get('shopping-cart/', 'Shoppingcart@getCart')->name('shoppingcart');
+
 // project.local/products/create/23
 Route::get('products/create/{category_id}', 'ProductController@create')->name('product.create.category');
 

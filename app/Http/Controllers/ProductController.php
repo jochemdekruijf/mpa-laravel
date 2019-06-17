@@ -7,9 +7,34 @@ use validate;
 use App\Product;
 use App\Category;
 use DB;
+use Session;
 
 class ProductController extends Controller
 {
+
+    public function getAdd2Cart(Request $request, $id )
+    {
+      $product = Product::find($id);
+      $oldcart = Session::has('cart') ? Session::get('cart') : null;
+      $cart = new Shoppingcart($oldcart);
+      $cart->add($product, $product->$id);
+
+      $request->session()->put('cart', $cart);
+    //   dd($request->session()->get('cart'));
+      return redirect()->route('categories.index'); //naar cart
+    }
+
+    public function getCart()
+    {
+        if (Session::has('cart')) {
+            return view('shop.shoppingcart-cart', ['products' => null]); 
+        }
+        $oldcart = Session::get('cart');
+        $cart = new Shoppingcart($oldcart);
+        return view('shop.shoppingcart-cart',['products' => $cart->items, 'totalPrice' => $cart->totalPrice]);
+         
+    }
+
    /**
      * Display a listing of the resource.
      *
@@ -65,7 +90,7 @@ class ProductController extends Controller
           ]);
 
           $product->save();
-          return redirect('/products')->with('success', 'Stock has been added');
+          return redirect('/categories')->with('success', 'Stock has been added');
     
     }
 
@@ -77,10 +102,7 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        $cat = Categories::where('id', $id)
-        // ->with('products.index')
-        ->get()
-        ->first();
+
     }
 
     /**
@@ -137,4 +159,5 @@ class ProductController extends Controller
    
         return redirect('/products')->with('success', 'Stock has been deleted Successfully');
     }
+
 }
