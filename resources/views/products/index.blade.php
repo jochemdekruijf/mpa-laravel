@@ -33,9 +33,9 @@
   <div class="card-body">
   <h5 class="card-title">{{$product->product_name}}</h5>
     <p class="card-text">€{{$product->product_price}}</p>
-    <a href="{{route('cart.add', ['id' => $product->id])}}" class="btn btn-primary">voeg aan winkelwagen toe</a>
+    <a href="{{url('addCart?product=' . $product->id)}}" class="btn btn-primary">voeg aan winkelwagen toe</a>
   </div>
 </div>
         @endforeach
-<div>
+
 @endsection

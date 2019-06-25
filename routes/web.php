@@ -18,11 +18,23 @@ Route::get('/', 'CategoryController@index');
 
 Route::resource('products', 'ProductController');
 
-Route::get('add2cart/{id}', 'productController@getAdd2Cart')->name('cart.add');
 
-Route::get('shopping-cart/', 'Shoppingcart@getCart')->name('shoppingcart');
+Route::get('/addCart', 'CartController@addCart')->name('addCart');
+Route::get('/viewCart', 'CartController@getCart')->name('viewCart');
+Route::get('/kill', 'CartController@kill')->name('kill');
+Route::get('/killone', 'CartController@killOne')->name('killOne');
+
+Route::get('/shopping-cart', 'Shoppingcart@getCart')->name('shoppingcart');
 
 // project.local/products/create/23
 Route::get('products/create/{category_id}', 'ProductController@create')->name('product.create.category');
 
 Route::resource('categories', 'CategoryController');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
