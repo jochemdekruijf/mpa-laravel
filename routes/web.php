@@ -24,8 +24,6 @@ Route::get('/viewCart', 'CartController@getCart')->name('viewCart');
 Route::get('/kill', 'CartController@kill')->name('kill');
 Route::get('/killone', 'CartController@killOne')->name('killOne');
 
-Route::get('/shopping-cart', 'Shoppingcart@getCart')->name('shoppingcart');
-
 // project.local/products/create/23
 Route::get('products/create/{category_id}', 'ProductController@create')->name('product.create.category');
 
@@ -35,6 +33,3 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

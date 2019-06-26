@@ -29,7 +29,7 @@
     <tbody>
         @foreach($products as $product)
         <div class="card" style="width: 18rem;">
-  <img class="card-img-top" src="">
+  <img class="card-img-top" src="https://cdn.shopify.com/s/files/1/0533/2089/files/placeholder-images-product-1_large.png?v=1530129292">
   <div class="card-body">
   <h5 class="card-title">{{$product->product_name}}</h5>
     <p class="card-text">€{{$product->product_price}}</p>

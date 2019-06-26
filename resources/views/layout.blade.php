@@ -8,12 +8,15 @@
   <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css" />
 </head>
 <body>
-	<nav class="navbar navbar-dark bg-dark"">
+	<nav class="navbar navbar-dark bg-dark">
   <a class="navbar-brand" href="{{ url('viewCart') }}">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8Bncj1OxlP5IoFnjojgmEwkmlOUYGFRe4cxmvHtihDVXt--SURA" width="30" height="30" alt="">
+    <img src="https://cdn.iconscout.com/icon/premium/png-256-thumb/shopping-cart-71-543136.png" width="30" height="30" alt="">
+  </a>
+    <a href="{{ url('/') }}">
+  	<img src="http://www.transparentpng.com/thumb/home/J4GYui-home-round-button-icon-png.png" width="30" height="30" alt="">
   </a>
   <a href="{{ url('/login') }}">
-  	<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBHvpKbjN_ZwfS839w2AFhbmwUAN6Kr5yVUbRFH3J6dc_-DqCIpA" width="30" height="30" alt="">
+  	<img src="https://image.flaticon.com/icons/png/512/206/206897.png" width="30" height="30" alt="">
   </a>
 </nav>
 
