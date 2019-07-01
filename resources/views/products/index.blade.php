@@ -23,7 +23,7 @@
     </div><br />
   @endif
         <nav class="nav">
-		<a class="nav-link" href="{{ route('product.create.category', $categoryId) }}">Add new product</a>
+		<!-- <a class="nav-link" href="{{ route('product.create.category', $categoryId) }}">Add new product</a> -->
 </nav>
     </thead>
     <tbody>
