@@ -15,7 +15,7 @@
                                 <span class="badge">anntal: {{ $product['quantity'] }}</span>
                                 <strong>{{ $product['name'] }}</strong>
                                 <span class="label label-success">prijs: €{{ $product['subtotal'] }}</span>
-                                <a href="{{ url('killone?product=' . $product['id']) }}" class="btn btn-danger">Delete</a>   
+                                <a href="{{ url('killone?product=' . $product['id']) }}" class="btn btn-danger" style="float:right;">Delete</a>   
                             </li>
                     @endforeach
                 </ul>
@@ -31,7 +31,7 @@
 
         <div class="row">
             <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
-                <a href="#" type="button" class="btn btn-success"  style="margin: 5px;">Checkout</a>
+                <a href="{{ route('addOrder') }}" type="button" class="btn btn-success"  style="margin: 5px;">Checkout</a>
             </div>
         </div>
          <a href="{{ url('kill') }}" class="btn btn-primary"> leeg session</a>

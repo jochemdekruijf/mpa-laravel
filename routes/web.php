@@ -24,10 +24,16 @@ Route::get('/viewCart', 'CartController@getCart')->name('viewCart');
 Route::get('/kill', 'CartController@kill')->name('kill');
 Route::get('/killone', 'CartController@killOne')->name('killOne');
 
-// project.local/products/create/23
+
 Route::get('products/create/{category_id}', 'ProductController@create')->name('product.create.category');
 
 Route::resource('categories', 'CategoryController');
+
+Route::get('/order', 'OrderController@getOrder')->name('orders');
+Route::get('/add-to-order', [ 
+    'uses' => 'OrderController@addOrder', 
+    'as' => 'addOrder'
+]);
 
 Auth::routes();
 

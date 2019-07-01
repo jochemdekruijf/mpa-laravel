@@ -15,7 +15,7 @@
   <table class="table table-striped">
     <thead>
         <nav class="nav">
-<!-- 		<a class="nav-link" href="{{ URL::to('categories/create') }}">Add new category</a> -->
+		<!-- <a class="nav-link" href="{{ URL::to('categories/create') }}">Add new category</a> -->
 </nav>
     </thead>
     <tbody>

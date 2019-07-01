@@ -9,14 +9,21 @@
 </head>
 <body>
 	<nav class="navbar navbar-dark bg-dark">
-  <a class="navbar-brand" href="{{ url('viewCart') }}">
-    <img src="https://cdn.iconscout.com/icon/premium/png-256-thumb/shopping-cart-71-543136.png" width="30" height="30" alt="">
+
+  <a href="{{ url('/') }}">
+  	<img src="http://www.transparentpng.com/thumb/home/J4GYui-home-round-button-icon-png.png" width="35" height="35" alt="home">
   </a>
-    <a href="{{ url('/') }}">
-  	<img src="http://www.transparentpng.com/thumb/home/J4GYui-home-round-button-icon-png.png" width="30" height="30" alt="">
+
+  <a  href="{{ url('viewCart') }}">
+    <img src="https://cdn.iconscout.com/icon/premium/png-256-thumb/shopping-cart-71-543136.png" width="30" height="30" alt="winkelwagen">
   </a>
+
+  <a href="{{ url('/order') }}">
+  	<img  src="https://img.icons8.com/bubbles/2x/purchase-order.png" width="35" height="35"  alt="bestellingen">
+  </a>
+  
   <a href="{{ url('/login') }}">
-  	<img src="https://image.flaticon.com/icons/png/512/206/206897.png" width="30" height="30" alt="">
+  	<img src="https://image.flaticon.com/icons/png/512/206/206897.png" width="30" height="30" alt="login">
   </a>
 </nav>
 
