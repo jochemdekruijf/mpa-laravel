@@ -51,9 +51,9 @@ class OrderController extends Controller
      */
     public function getOrder(Order $order)
     {
-        $orders = json_decode(Order::all('order')[0]);
-         var_dump($orders);
-        exit;
+        $orders = json_decode(Order::all('order'));
+        //  var_dump($orders);
+        // exit;
         return view('orders', ['orders' => $orders]);
     }
 

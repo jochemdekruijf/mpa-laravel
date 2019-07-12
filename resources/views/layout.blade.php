@@ -11,10 +11,11 @@
 	<nav class="navbar navbar-dark bg-dark">
 
   <a href="{{ url('/') }}">
-  	<img src="http://www.transparentpng.com/thumb/home/J4GYui-home-round-button-icon-png.png" width="35" height="35" alt="home">
+  	<img src="https://bower.io/img/bower-logo.png" width="35" height="35" alt="home">
   </a>
-
+<!-- http://www.transparentpng.com/thumb/home/J4GYui-home-round-button-icon-png.png -->
   <a  href="{{ url('viewCart') }}">
+  <span class="badge text-#FF7F00" style="float: right; font-size: 19px;">{{ Session::has('cart') ? Session::get('cart')->totalQty : '' }}</span>
     <img src="https://cdn.iconscout.com/icon/premium/png-256-thumb/shopping-cart-71-543136.png" width="30" height="30" alt="winkelwagen">
   </a>
 

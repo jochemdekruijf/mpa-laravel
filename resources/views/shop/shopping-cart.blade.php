@@ -12,7 +12,7 @@
                 <ul class="list-group" style="padding-top: 20px;">
                     @foreach($products as $product)
                             <li class="list-group-item">
-                                <span class="badge">anntal: {{ $product['quantity'] }}</span>
+                                <span class="badge">aantal: {{ $product['quantity'] }}</span>
                                 <strong>{{ $product['name'] }}</strong>
                                 <span class="label label-success">prijs: €{{ $product['subtotal'] }}</span>
                                 <a href="{{ url('killone?product=' . $product['id']) }}" class="btn btn-danger" style="float:right;">Delete</a>   
